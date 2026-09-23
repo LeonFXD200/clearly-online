@@ -3,8 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs",
-    "test": "node --check build.mjs && node --check script.js && node verify.mjs"
+    "build": "node minify-assets.mjs && node build.mjs",
+    "test": "node --check build.mjs && node --check script.js && node --check minify-assets.mjs && node verify.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
 }

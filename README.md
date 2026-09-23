@@ -6,9 +6,10 @@ Live: https://leonfxd200.github.io/good-measure-personal/
 
 ## Build and preview
 
-Requires Node.js 20+ to regenerate the HTML. No npm dependencies or installation are needed.
+Requires Node.js 20+ to regenerate the HTML. Install the small development dependency before the first build.
 
 ```sh
+npm ci
 npm run build
 npm test
 python -m http.server 8000
@@ -19,12 +20,13 @@ Open http://localhost:8000. The output is plain HTML, CSS and JavaScript. GitHub
 ## Editing
 
 - `site.config.mjs`: public brand, current canonical URL, approved email address and optional public founder name.
-- `build.mjs`: page copy, pricing packages, shared header/footer and metadata. Run the build after edits; commit the resulting HTML and sitemap too.
+- `build.mjs`: page copy, pricing packages, audience pages, shared header/footer and metadata. Run the build after edits; commit the resulting HTML, `llms.txt` and sitemap too.
 - `styles.css`: responsive layouts and brand tokens. Containers have bounded widths without viewport-derived internal padding, including at 4K.
 - `script.js`: menu, pricing switch, cost comparison and local email-draft generation.
+- `minify-assets.mjs`: creates the CSS and JavaScript files used by the public pages. The source CSS was already compact, so its extra size reduction is small; the JavaScript reduction is more visible.
 - `verify.mjs`: checks page titles/descriptions, H1s, branding, structured-data syntax, canonical targets, local links/anchors and asset budgets.
 
-Pages: home, web design, local SEO, hosting/care, pricing, about, contact and website privacy. A custom 404 is included. There are no fictional client projects, reviews, awards, addresses or ranking claims.
+Pages: home, web design, local SEO, hosting/care, pricing, about, contact and website privacy, plus audience pages for trades, appointment-led businesses and local professional services. A custom 404 is included. There are no fictional client projects, reviews, awards, addresses or ranking claims.
 
 ## Publish on GitHub Pages
 
@@ -62,11 +64,13 @@ Confirm capacity and commercial terms with the owner before contracting: VAT sta
 - Unique titles, meta descriptions, canonical URLs and one primary heading per page.
 - Open Graph/Twitter metadata and a 1200 × 630 original social card.
 - Organization, WebSite, WebPage, BreadcrumbList and relevant Service JSON-LD; no invented LocalBusiness address or review/rating markup.
-- XML sitemap of the seven public marketing pages. The utility privacy page and 404 have `noindex`.
+- XML sitemap of the ten public marketing pages. The utility privacy page and 404 have `noindex`.
+- A project-level `llms.txt` summarises the actual pages and commercial details. Pages link to it with `rel="describedby"`. This is an optional discovery format, not a guarantee of inclusion in assistant answers.
+- Public pages use minified CSS and JavaScript. Readable source files remain in the repository.
 - Responsive layouts, reduced-motion support, explicit image dimensions, a lightweight initial portrait, lazy-loaded large portrait and self-hosted Manrope.
 - Local copy reflects actual service areas rather than cloned town landing pages.
 
-Important: a project-level `robots.txt` under `/good-measure-personal/` is **not** the origin-root robots file search engines use. It is ready for a future custom domain; on the current GitHub Pages address, submit the sitemap directly through a verified URL-prefix Search Console property. No Google Search Console submission or Business Profile creation has been performed by this build.
+Important: a project-level `robots.txt` under `/good-measure-personal/` is **not** the origin-root robots file search engines use. A live check of `https://leonfxd200.github.io/robots.txt` returned 404. The project file is ready for a future custom domain; on the current GitHub Pages address, submit the sitemap directly through a verified URL-prefix Search Console property. No Google Search Console submission or Business Profile creation has been performed by this build.
 
 ## Owner follow-up / custom domain
 
