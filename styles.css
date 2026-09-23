@@ -16,3 +16,16 @@
 @media(max-width:900px){.mission-inner{grid-template-columns:1fr 2fr;gap:20px 6%}.mission-inner>p:last-child{grid-column:2}.audience-intro{grid-template-columns:1fr;gap:18px}}
 @media(max-width:520px){.mission-band{padding-block:38px}.mission-inner{grid-template-columns:1fr;gap:14px}.mission-inner>p:last-child{grid-column:1}.mission-statement{font-size:26px}.audience-intro>p{font-size:14px}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Readability: keep supporting copy comfortable without changing the visual hierarchy. */
+.eyebrow,.card-top,.portrait-caption,.price-card .eyebrow,.row-number,.breadcrumbs,.hero-note,.hero-bottom,.price small,.footer-bottom{font-size:13px}
+.local-bar,.header-inner nav,.menu,.footer-links,.footer-top p,.price-switch button,.cost-controls label,form label,.small,thead th{font-size:14px}
+.button,.text-link,.price-card .button{font-size:15px}
+.hero-description,.service-card p,.about-layout p:not(.eyebrow):not(.large-copy),.price-card p:not(.price):not(.eyebrow),.check-list,.price-card .check-list,.three-columns p,.steps p,.closing p:not(.eyebrow),.detail-rows article>p,.split>div>p,.two-columns p:not(.eyebrow):not(.small),.answer,.contact-layout>div>p,.contact-steps,.cost-results p,#form-status,#brief-output,.mission-inner>p:last-child,.audience-intro>p{font-size:16px}
+.section-heading>p:last-child:not(.eyebrow),.page-hero .lead,.local-section>p{font-size:17px}
+.faq-list summary{font-size:17px}
+table{font-size:15px}
+@media(max-width:1050px){.header-inner nav{font-size:13px}}
+@media(max-width:780px){.local-bar,.hero .eyebrow,.page-hero .eyebrow,.hero-note,.hero-bottom,.footer-bottom,.detail-rows .eyebrow{font-size:13px}.header-inner nav{font-size:15px}.hero-actions .button{font-size:15px}.section-heading>p:last-child:not(.eyebrow),.page-hero .lead,.local-section>p{font-size:16px}.service-card p,.price-card p:not(.price):not(.eyebrow),.price-card .check-list,.detail-rows article>p,.answer,.steps p,.audience-intro>p{font-size:16px}th,td{font-size:14px}}
+@media(max-width:520px){.hero-actions .button{font-size:14px;gap:9px;padding:16px 13px}.price-switch button{font-size:13px;padding:12px 13px}.cost-controls .checkbox-label,.price-disclaimer{font-size:14px}.three-columns .text-link{font-size:15px}}
+@media(max-width:300px){.steps{grid-template-columns:1fr}}
