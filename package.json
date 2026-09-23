@@ -1,0 +1,10 @@
+{
+  "name": "made-proper-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --check build.mjs && node --check script.js && node verify.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
