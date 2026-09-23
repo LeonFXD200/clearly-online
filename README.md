@@ -28,6 +28,8 @@ Open http://localhost:8000. The output is plain HTML, CSS and JavaScript. GitHub
 
 Pages: home, web design, local SEO, hosting/care, pricing, about, contact and website privacy, plus audience pages for trades, appointment-led businesses and local professional services. A custom 404 is included. There are no fictional client projects, reviews, awards, addresses or ranking claims.
 
+The Websites navigation uses a native disclosure with direct links to design/redesigns and all three audience pages. On phones, the menu opens in the document flow. Escape closes the innermost open disclosure, and focus leaving the header closes it without taking focus back. The skip link targets a focusable main region, and controls use two-colour focus indicators on light and dark sections.
+
 ## Publish on GitHub Pages
 
 The repository serves the root of the `main` branch. Build and test, then commit and push to main. Check the Pages deployment completes and inspect the public site. Relative internal links work beneath the repository path. `.nojekyll` preserves the static output.

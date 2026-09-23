@@ -36,3 +36,24 @@ section[id]{scroll-margin-top:24px}
 .cost-results .text-link{margin-top:14px}
 .brief-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 @media(max-width:520px){.section-nav{gap:8px 20px;margin-bottom:30px}.brief-actions{align-items:stretch;flex-direction:column}.brief-actions .button{width:100%}}
+
+/* Navigation stays usable by touch, keyboard and without JavaScript. */
+.header-inner nav>a,.nav-websites>summary{min-height:44px;display:flex;align-items:center}
+.nav-websites{position:relative}.nav-websites>summary{list-style:none;gap:9px;padding-block:12px;cursor:pointer;line-height:1.4}
+.nav-websites>summary::-webkit-details-marker{display:none}
+.nav-websites>summary span{font-size:17px;line-height:1;transition:transform .2s}
+.nav-websites[open]>summary span{transform:rotate(180deg)}
+.nav-websites[data-current]>summary,.nav-websites>summary:hover{color:var(--accent)}
+.nav-submenu{position:absolute;top:calc(100% + 12px);left:-16px;z-index:20;width:310px;list-style:none;margin:0;padding:8px;border:1px solid var(--dark-line);border-radius:10px;background:var(--deep);box-shadow:0 12px 30px #0003}
+.nav-submenu a{display:block;padding:14px 12px;border-radius:5px;font-size:14px;line-height:1.5}
+.nav-submenu a:hover,.nav-submenu a[aria-current]{background:#353530}
+.footer-links a{padding-block:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 3px var(--paper)}
+@media(max-width:780px){
+  .js header nav{position:static;width:100%;padding:0 0 8px;left:auto;right:auto;top:auto;border-bottom:0}
+  .nav-websites{width:100%;border-top:1px solid var(--dark-line)}
+  .nav-websites>summary{padding:16px 0;justify-content:space-between}
+  .nav-submenu{position:static;width:100%;margin-bottom:12px;box-shadow:none}
+  .js header nav .nav-submenu a{border:0;padding:14px 12px}
+}
+@media(forced-colors:active){a:focus-visible,button:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline-color:Highlight;box-shadow:none}}

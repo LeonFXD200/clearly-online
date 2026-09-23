@@ -14,7 +14,7 @@ for(const file of files){
  assert(html.includes('<html lang="en-GB">'),`${file}: language`);
  assert(html.includes(`rel="canonical" href="${new URL(file==='index.html'?'':file,config.url).href}"`),`${file}: canonical`);
  assert(html.includes('rel="describedby" type="text/markdown"'),`${file}: llms guide link`);
- assert(html.includes('href="styles.min.css?v=made-proper-4"')&&html.includes('src="script.min.js?v=made-proper-4"'),`${file}: minified assets`);
+ assert(html.includes('href="styles.min.css?v=made-proper-5"')&&html.includes('src="script.min.js?v=made-proper-5"'),`${file}: minified assets`);
  assert(!/goodmeasure|Good Measure|PLACEHOLDER|TODO|®/.test(html),`${file}: old branding or placeholders`);
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
  assert.equal(schema['@context'],'https://schema.org');

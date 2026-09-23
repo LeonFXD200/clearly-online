@@ -2,11 +2,28 @@ document.documentElement.classList.add('js');
 const menu=document.querySelector('.menu');
 const nav=document.querySelector('#navigation');
 if(menu&&nav){
+  const header=menu.closest('header');
+  const websites=nav.querySelector('.nav-websites');
+  const closeWebsites=()=>{if(websites)websites.open=false;};
   menu.hidden=false;
-  const closeMenu=()=>{menu.setAttribute('aria-expanded','false');nav.classList.remove('open');};
-  menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);});
+  const closeMenu=()=>{menu.setAttribute('aria-expanded','false');nav.classList.remove('open');closeWebsites();};
+  menu.addEventListener('click',()=>{
+    const open=menu.getAttribute('aria-expanded')!=='true';
+    menu.setAttribute('aria-expanded',String(open));
+    nav.classList.toggle('open',open);
+    if(!open)closeWebsites();
+  });
   nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus();}});
+  document.addEventListener('keydown',event=>{
+    if(event.key!=='Escape')return;
+    if(websites?.open){event.preventDefault();closeWebsites();websites.querySelector('summary').focus();}
+    else if(nav.classList.contains('open')){event.preventDefault();closeMenu();menu.focus();}
+  });
+  document.addEventListener('click',event=>{if(!header.contains(event.target))closeMenu();});
+  document.addEventListener('focusin',event=>{
+    if(!header.contains(event.target))closeMenu();
+    else if(websites&&!websites.contains(event.target))closeWebsites();
+  });
   window.matchMedia('(min-width: 781px)').addEventListener('change',closeMenu);
 }
 document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
