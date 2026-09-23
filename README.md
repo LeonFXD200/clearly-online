@@ -40,6 +40,8 @@ Public email approved by the owner: `leonfxdupree@gmail.com`.
 
 The form prepares a `mailto:` draft addressed to that email. It **does not send email**, submit to a backend, store form contents, or prove message delivery. Visitors open their email app and send the message there, or copy the prepared brief into an email. Long `mailto:` URLs can be limited by email clients, so the full brief is always shown as a fallback.
 
+Pricing links carry the chosen package and payment model into the enquiry form. A Copy enquiry button provides a clipboard action, with manual text selection if clipboard access is unavailable. Editing any enquiry field hides the previous prepared draft until it is rebuilt, so the email link cannot silently use outdated details. Existing website addresses can be entered without `https://`.
+
 No external form provider, analytics, advertising scripts, tracking cookies or embedded maps are installed. Images and fonts are served locally. GitHub infrastructure may retain technical access logs under its own policy. The privacy page describes this current setup, not a comprehensive future business policy.
 
 Before introducing a backend form: choose the receiving provider, configure anti-spam protection and delivery credentials privately, update the privacy information with the controller/contact, purpose, retention and provider details, then test real delivery and failure states. Never commit API secrets.
