@@ -54,9 +54,9 @@ Owner-approved guide prices are retained:
 
 | Package | Build | Managed per month | Setup | Managed year one |
 | --- | ---: | ---: | ---: | ---: |
-| Starter | £950 | £120 | £250 | £1,690 |
-| Business | £1,850 | £195 | £350 | £2,690 |
-| Growth | from £3,250 | from £295 | £500 | from £4,040 |
+| Starter | £795 | £99 | £195 | £1,383 |
+| Business | £1,495 | £159 | £295 | £2,203 |
+| Growth | from £2,495 | from £239 | £395 | from £3,263 |
 
 The more detailed service model is a proposal to support quoting, not an executed agreement: one-off build uses a proposed 50/50 payment schedule; managed is 12 months from launch plus setup, with hosting/care and 30 minutes of small edits monthly. Standalone care starts at £39/month; optional SEO support starts at £180/month. The calculator explains that 24-month estimates assume current rates continue, not a rate guarantee.
 

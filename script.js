@@ -44,7 +44,7 @@ if(costPlan){
   const costPeriod=document.querySelector('#cost-period');
   const care=document.querySelector('#cost-care');
   [costPlan,costPeriod,care].forEach(control=>control.disabled=false);
-  const plans=[{build:950,monthly:120,setup:250},{build:1850,monthly:195,setup:350},{build:3250,monthly:295,setup:500}];
+  const plans=[{build:795,monthly:99,setup:195},{build:1495,monthly:159,setup:295},{build:2495,monthly:239,setup:395}];
   const money=value=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(value);
   const update=()=>{
     const plan=plans[Number(costPlan.value)],months=Number(costPeriod.value),careRate=care.checked?39:0,prefix=costPlan.value==='2'?'From ':'';
@@ -65,7 +65,10 @@ if(costPlan){
 }
 const form=document.querySelector('#brief-form');
 if(form){
-  form.querySelector('button[type=submit]').disabled=false;
+  const submitButton=form.querySelector('button[type=submit]');
+  submitButton.disabled=false;
+  const preparationHelp=submitButton.nextElementSibling;
+  if(form.dataset.email&&preparationHelp)preparationHelp.firstChild.nodeValue='Preparing your enquiry copies it automatically. You can then open Gmail, use your normal email app, or copy it again. ';
   const parameters=new URLSearchParams(location.search);
   const requestedPlan=parameters.get('plan');
   const select=form.querySelector('[name=plan]');
@@ -74,7 +77,19 @@ if(form){
   const requestedPayment=parameters.get('payment');
   if(['build','monthly'].includes(requestedPayment))payment.value=requestedPayment;
   const output=document.querySelector('#brief-output'),status=document.querySelector('#form-status'),draft=document.querySelector('#email-draft'),actions=document.querySelector('#brief-actions'),copy=document.querySelector('#copy-brief');
+  const mailApp=draft.cloneNode(true);
+  mailApp.id='email-app';mailApp.className='button outline';mailApp.firstChild.nodeValue='Open email app ';
+  actions.insertBefore(mailApp,copy);
+  draft.firstChild.nodeValue='Open in Gmail ';draft.target='_blank';draft.rel='noopener';
+  copy.className='button accent';
   let prepared=false;
+  const copyPreparedBrief=async brief=>{
+    try{await navigator.clipboard.writeText(brief);return true;}
+    catch{
+      output.focus();output.select();
+      try{return document.execCommand('copy');}catch{return false;}
+    }
+  };
   const invalidate=event=>{
     if(!prepared||event.target===output)return;
     prepared=false;
@@ -82,29 +97,34 @@ if(form){
     output.value='';
     actions.hidden=true;
     draft.removeAttribute('href');
+    mailApp.removeAttribute('href');
     status.textContent='Your details have changed. Prepare your enquiry again to include the latest version.';
   };
   form.addEventListener('input',invalidate);
   form.addEventListener('change',invalidate);
-  form.addEventListener('submit',event=>{
+  form.addEventListener('submit',async event=>{
     event.preventDefault();
     const data=new FormData(form);
     const paymentLabel={unsure:'I would like advice',build:'One-off build',monthly:'Managed monthly'}[data.get('payment')];
     const brief=`Website enquiry for Clearly Online\n\nName: ${data.get('name').trim()}\nBusiness: ${data.get('business').trim()||'Not supplied'}\nEmail: ${data.get('email').trim()||'Not supplied'}\nWebsite: ${data.get('website').trim()||'Not supplied'}\nInterested in: ${data.get('plan')}\nPayment preference: ${paymentLabel}\nBudget: ${data.get('budget').trim()||'Not supplied'}\n\n${data.get('message').trim()}`;
     output.value=brief;output.hidden=false;actions.hidden=false;prepared=true;
-    if(form.dataset.email){draft.href=`mailto:${form.dataset.email}?subject=${encodeURIComponent('Website enquiry - '+(data.get('business').trim()||data.get('name').trim()))}&body=${encodeURIComponent(brief)}`;draft.hidden=false;status.textContent='Your enquiry is ready to review below. Open it in your email app, or copy it into a new email. Nothing has been sent yet.';}
+    if(form.dataset.email){
+      const subject='Website enquiry - '+(data.get('business').trim()||data.get('name').trim());
+      const encodedSubject=encodeURIComponent(subject),encodedBrief=encodeURIComponent(brief);
+      draft.href=`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(form.dataset.email)}&su=${encodedSubject}&body=${encodedBrief}`;
+      mailApp.href=`mailto:${form.dataset.email}?subject=${encodedSubject}&body=${encodedBrief}`;
+      draft.hidden=false;mailApp.hidden=false;
+      const copied=await copyPreparedBrief(brief);
+      status.textContent=copied?`Your enquiry has been copied. Open Gmail or your email app, then send it to ${form.dataset.email}. Nothing has been sent yet.`:'Your enquiry is ready below. Open Gmail, open your email app, or use Copy enquiry. Nothing has been sent yet.';
+    }
     else {draft.hidden=true;status.textContent='Your brief is ready below. You can copy it using the button. Nothing has been sent.';}
     output.focus();
   });
   copy.addEventListener('click',async()=>{
     if(!prepared)return;
     const currentBrief=output.value;
-    try{
-      await navigator.clipboard.writeText(currentBrief);
-      if(prepared&&output.value===currentBrief)status.textContent=`Enquiry copied. Paste it into an email${form.dataset.email?' to '+form.dataset.email:''} and send when you are ready. Nothing has been sent by this website.`;
-    }catch{
-      if(prepared&&output.value===currentBrief){output.focus();output.select();status.textContent='Automatic copying is unavailable. Your enquiry text is selected below; use your device’s Copy command, then paste it into an email.';}
-    }
+    const copied=await copyPreparedBrief(currentBrief);
+    if(prepared&&output.value===currentBrief)status.textContent=copied?`Enquiry copied. Paste it into an email${form.dataset.email?' to '+form.dataset.email:''} and send when you are ready. Nothing has been sent by this website.`:'Automatic copying is unavailable. Your enquiry text is selected below; use your device’s Copy command, then paste it into an email.';
   });
 }
 const year=document.querySelector('#year');
