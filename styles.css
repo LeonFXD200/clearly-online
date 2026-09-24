@@ -18,17 +18,29 @@
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 /* Readability: keep supporting copy comfortable without changing the visual hierarchy. */
-.eyebrow,.card-top,.portrait-caption,.price-card .eyebrow,.row-number,.breadcrumbs,.hero-note,.hero-bottom,.price small,.footer-bottom{font-size:13px}
-.local-bar,.header-inner nav,.menu,.footer-links,.footer-top p,.price-switch button,.cost-controls label,form label,.small,thead th{font-size:14px}
+.eyebrow,.card-top,.portrait-caption,.price-card .eyebrow,.row-number,.breadcrumbs,.hero-note,.hero-bottom,.price small,.footer-bottom{font-size:14px}
+.local-bar,.header-inner nav,.menu,.footer-links,.footer-top p,.price-switch button,.cost-controls label,form label,.small,thead th{font-size:15px}
 .button,.text-link,.price-card .button{font-size:15px}
 .hero-description,.service-card p,.about-layout p:not(.eyebrow):not(.large-copy),.price-card p:not(.price):not(.eyebrow),.check-list,.price-card .check-list,.three-columns p,.steps p,.closing p:not(.eyebrow),.detail-rows article>p,.split>div>p,.two-columns p:not(.eyebrow):not(.small),.answer,.contact-layout>div>p,.contact-steps,.cost-results p,#form-status,#brief-output,.mission-inner>p:last-child,.audience-intro>p{font-size:16px}
 .section-heading>p:last-child:not(.eyebrow),.page-hero .lead,.local-section>p{font-size:17px}
 .faq-list summary{font-size:17px}
 table{font-size:15px}
-@media(max-width:1050px){.header-inner nav{font-size:13px}}
-@media(max-width:780px){.local-bar,.hero .eyebrow,.page-hero .eyebrow,.hero-note,.hero-bottom,.footer-bottom,.detail-rows .eyebrow{font-size:13px}.header-inner nav{font-size:15px}.hero-actions .button{font-size:15px}.section-heading>p:last-child:not(.eyebrow),.page-hero .lead,.local-section>p{font-size:16px}.service-card p,.price-card p:not(.price):not(.eyebrow),.price-card .check-list,.detail-rows article>p,.answer,.steps p,.audience-intro>p{font-size:16px}th,td{font-size:14px}}
+@media(max-width:1050px){.header-inner nav{font-size:14px}}
+@media(max-width:780px){.local-bar,.hero .eyebrow,.page-hero .eyebrow,.hero-note,.hero-bottom,.footer-bottom,.detail-rows .eyebrow{font-size:14px}.header-inner nav{font-size:15px}.hero-actions .button{font-size:15px}.section-heading>p:last-child:not(.eyebrow),.page-hero .lead,.local-section>p{font-size:16px}.service-card p,.price-card p:not(.price):not(.eyebrow),.price-card .check-list,.detail-rows article>p,.answer,.steps p,.audience-intro>p{font-size:16px}th,td{font-size:14px}}
 @media(max-width:520px){.hero-actions .button{font-size:14px;gap:9px;padding:16px 13px}.price-switch button{font-size:13px;padding:12px 13px}.cost-controls .checkbox-label,.price-disclaimer{font-size:14px}.three-columns .text-link{font-size:15px}}
 @media(max-width:300px){.steps{grid-template-columns:1fr}}
+
+/* Vector arrows render consistently on every platform. */
+.arrow-icon{width:1em;height:1em;display:inline-block;flex:0 0 auto;overflow:visible;vertical-align:-.12em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.button .arrow-icon,.text-link .arrow-icon,.nav-cta .arrow-icon,.logo .arrow-icon,.hero-bottom .arrow-icon{transition:transform .2s}
+.button:hover .arrow-up-right,.text-link:hover .arrow-up-right,.nav-cta:hover .arrow-up-right,.logo:hover .arrow-up-right{transform:translate(3px,-3px)}
+.logo .arrow-icon{width:.72em;height:.72em;margin-left:7px;color:var(--accent)}
+.card-top .arrow-icon{width:23px;height:23px}
+.window-page>span .arrow-icon{width:.9em;height:.9em;margin-left:4px}
+.nav-websites>summary .arrow-icon{width:16px;height:16px;transition:transform .2s}
+.nav-websites[open]>summary .arrow-icon{transform:rotate(180deg)}
+.footer-bottom .arrow-icon{margin-left:4px}
+.window-bar span{font-size:11px}.window-page small,.window-page>span,.search-art small{font-size:11px}.search-art>span{font-size:13px}
 
 .section-nav{display:flex;flex-wrap:wrap;gap:10px 28px;border-block:1px solid var(--line);padding-block:18px;margin-bottom:40px;font-size:14px;font-weight:600;line-height:1.5}
 .section-nav a{padding-block:6px;text-decoration:none}.section-nav a:hover{text-decoration:underline}

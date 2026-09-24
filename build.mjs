@@ -1,9 +1,24 @@
-import { writeFileSync } from 'node:fs';
+import { writeFileSync as rawWriteFileSync } from 'node:fs';
 import config from './site.config.mjs';
 
 // A dependency-free static build. All meaningful content is in the generated HTML.
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const url = path => new URL(path, config.url).href;
+const arrowIcon = (direction='up-right') => {
+ const paths = {
+  'up-right':'<path d="M3 13 13 3M6 3h7v7"/>',
+  down:'<path d="m3 6 5 5 5-5"/>',
+  up:'<path d="M8 13V3M4 7l4-4 4 4"/>'
+ };
+ return `<svg class="arrow-icon arrow-${direction}" aria-hidden="true" viewBox="0 0 16 16" focusable="false">${paths[direction]}</svg>`;
+};
+const normaliseArrows = html => html
+ .replaceAll('<span aria-hidden="true">↗</span>',arrowIcon())
+ .replaceAll('<span aria-hidden="true">↓</span>',arrowIcon('down'))
+ .replaceAll('<span aria-hidden="true">⌄</span>',arrowIcon('down'))
+ .replaceAll(' ↗',` ${arrowIcon()}`)
+ .replaceAll(' ↑',` ${arrowIcon('up')}`);
+const writeFileSync = (path,data) => rawWriteFileSync(path,path.endsWith('.html')?normaliseArrows(data):data);
 const link = (path, text, cls='text-link') => `<a class="${cls}" href="${path}">${text}<span aria-hidden="true">↗</span></a>`;
 const photo = (cls='', lazy=true) => `<img class="${cls}" src="assets/founder-800.jpg" srcset="assets/founder-240.jpg 240w, assets/founder-800.jpg 800w" sizes="${cls==='avatar'?'64px':'(max-width: 700px) 88vw, 520px'}" width="800" height="1200" alt="The person behind Clearly Online" ${lazy?'loading="lazy"':''} decoding="async">`;
 const heading = (eyebrow,title,description='') => `<div class="section-heading"><p class="eyebrow">${eyebrow}</p><h2>${title}</h2>${description?`<p>${description}</p>`:''}</div>`;
