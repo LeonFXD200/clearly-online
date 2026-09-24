@@ -90,9 +90,9 @@ if(form){
     event.preventDefault();
     const data=new FormData(form);
     const paymentLabel={unsure:'I would like advice',build:'One-off build',monthly:'Managed monthly'}[data.get('payment')];
-    const brief=`Website enquiry for Made Proper\n\nName: ${data.get('name').trim()}\nBusiness: ${data.get('business').trim()||'Not supplied'}\nEmail: ${data.get('email').trim()||'Not supplied'}\nWebsite: ${data.get('website').trim()||'Not supplied'}\nInterested in: ${data.get('plan')}\nPayment preference: ${paymentLabel}\nBudget: ${data.get('budget').trim()||'Not supplied'}\n\n${data.get('message').trim()}`;
+    const brief=`Website enquiry for Clearly Online\n\nName: ${data.get('name').trim()}\nBusiness: ${data.get('business').trim()||'Not supplied'}\nEmail: ${data.get('email').trim()||'Not supplied'}\nWebsite: ${data.get('website').trim()||'Not supplied'}\nInterested in: ${data.get('plan')}\nPayment preference: ${paymentLabel}\nBudget: ${data.get('budget').trim()||'Not supplied'}\n\n${data.get('message').trim()}`;
     output.value=brief;output.hidden=false;actions.hidden=false;prepared=true;
-    if(form.dataset.email){draft.href=`mailto:${form.dataset.email}?subject=${encodeURIComponent('Website enquiry — '+(data.get('business').trim()||data.get('name').trim()))}&body=${encodeURIComponent(brief)}`;draft.hidden=false;status.textContent='Your enquiry is ready to review below. Open it in your email app, or copy it into a new email. Nothing has been sent yet.';}
+    if(form.dataset.email){draft.href=`mailto:${form.dataset.email}?subject=${encodeURIComponent('Website enquiry - '+(data.get('business').trim()||data.get('name').trim()))}&body=${encodeURIComponent(brief)}`;draft.hidden=false;status.textContent='Your enquiry is ready to review below. Open it in your email app, or copy it into a new email. Nothing has been sent yet.';}
     else {draft.hidden=true;status.textContent='Your brief is ready below. You can copy it using the button. Nothing has been sent.';}
     output.focus();
   });

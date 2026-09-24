@@ -1,8 +1,8 @@
-# Made Proper
+# Clearly Online
 
-Independent web design, local SEO and website care for Sevenoaks and Kent. Original charcoal, ivory and tangerine design with the owner's supplied portrait. Rebranded from Good Measure; the existing repository URL is retained so published links continue working.
+Independent web design, local SEO and website care for Sevenoaks and Kent. Original charcoal, ivory and tangerine design with the owner's supplied portrait.
 
-Live: https://leonfxd200.github.io/good-measure-personal/
+Live: https://leonfxd200.github.io/clearly-online/
 
 ## Build and preview
 
@@ -34,7 +34,7 @@ The Websites navigation uses a native disclosure with direct links to design/red
 
 The repository serves the root of the `main` branch. Build and test, then commit and push to main. Check the Pages deployment completes and inspect the public site. Relative internal links work beneath the repository path. `.nojekyll` preserves the static output.
 
-Do not rename the repository without planning for the existing public URL. The brand does not require a repository rename.
+The repository and GitHub Pages path use the Clearly Online name.
 
 ## Contact and privacy
 
@@ -74,7 +74,7 @@ Confirm capacity and commercial terms with the owner before contracting: VAT sta
 - Responsive layouts, reduced-motion support, explicit image dimensions, a lightweight initial portrait, lazy-loaded large portrait and self-hosted Manrope.
 - Local copy reflects actual service areas rather than cloned town landing pages.
 
-Important: a project-level `robots.txt` under `/good-measure-personal/` is **not** the origin-root robots file search engines use. A live check of `https://leonfxd200.github.io/robots.txt` returned 404. The project file is ready for a future custom domain; on the current GitHub Pages address, submit the sitemap directly through a verified URL-prefix Search Console property. No Google Search Console submission or Business Profile creation has been performed by this build.
+Important: a project-level `robots.txt` under `/clearly-online/` is **not** the origin-root robots file search engines use. A live check of `https://leonfxd200.github.io/robots.txt` returned 404. The project file is ready for a future custom domain; on the current GitHub Pages address, submit the sitemap directly through a verified URL-prefix Search Console property. No Google Search Console submission or Business Profile creation has been performed by this build.
 
 ## Owner follow-up / custom domain
 

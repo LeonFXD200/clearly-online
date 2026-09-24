@@ -14,11 +14,12 @@ for(const file of files){
  assert(html.includes('<html lang="en-GB">'),`${file}: language`);
  assert(html.includes(`rel="canonical" href="${new URL(file==='index.html'?'':file,config.url).href}"`),`${file}: canonical`);
  assert(html.includes('rel="describedby" type="text/markdown"'),`${file}: llms guide link`);
- assert(html.includes('href="styles.min.css?v=made-proper-5"')&&html.includes('src="script.min.js?v=made-proper-5"'),`${file}: minified assets`);
- assert(!/goodmeasure|Good Measure|PLACEHOLDER|TODO|®/.test(html),`${file}: old branding or placeholders`);
+ assert(html.includes('href="styles.min.css?v=clearly-online-1"')&&html.includes('src="script.min.js?v=clearly-online-1"'),`${file}: minified assets`);
+ assert(!/goodmeasure|Good Measure|Made Proper|MADE PROPER|made-proper|PLACEHOLDER|TODO|®/.test(html),`${file}: old branding or placeholders`);
+ assert(!/[–—]/.test(html),`${file}: no en or em dashes`);
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
  assert.equal(schema['@context'],'https://schema.org');
- assert.equal(schema['@graph'][0].name,'Made Proper');
+ assert.equal(schema['@graph'][0].name,'Clearly Online');
  for(const match of html.matchAll(/<img\b([^>]+)>/g)){
    assert(/alt="[^"]+"/.test(match[1]),`${file}: image alt`);
    assert(/width="\d+"/.test(match[1])&&/height="\d+"/.test(match[1]),`${file}: image dimensions`);
@@ -40,7 +41,7 @@ assert.equal((sitemap.match(/<loc>/g)||[]).length,files.filter(f=>f!=='privacy.h
 for(const file of files.filter(f=>f!=='privacy.html'))assert(sitemap.includes(new URL(file==='index.html'?'':file,config.url).href));
 assert(readFileSync('contact.html','utf8').includes(config.email));
 for(const page of ['websites-for-trades.html','websites-for-appointments.html','websites-for-professionals.html'])assert(readFileSync(page,'utf8').includes('COMMON QUESTIONS'),`${page}: answer content`);
-assert(readFileSync('about.html','utf8').includes('Made Proper exists to help good local businesses explain their work clearly online'), 'mission');
+assert(readFileSync('about.html','utf8').includes('Clearly Online exists to help good local businesses explain their work clearly online'), 'mission');
 const llms=readFileSync('llms.txt','utf8');
 assert(llms.includes(config.email));
 for(const file of files.filter(f=>f!=='privacy.html'))assert(llms.includes(new URL(file==='index.html'?'':file,config.url).href),`llms.txt missing ${file}`);
