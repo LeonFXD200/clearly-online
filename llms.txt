@@ -4,22 +4,22 @@
 
 ## Start here
 
-- [Homepage](https://leonfxd200.github.io/clearly-online/): The studio, services, prices and how to enquire.
-- [Website design](https://leonfxd200.github.io/clearly-online/web-design.html): Website builds, redesigns, quote forms and booking integrations.
-- [Pricing](https://leonfxd200.github.io/clearly-online/pricing.html): Guide package prices, setup fees, 12-month managed commitment, exclusions and cost comparison.
-- [About Clearly Online](https://leonfxd200.github.io/clearly-online/about.html): The studio's mission and approach.
-- [Contact](https://leonfxd200.github.io/clearly-online/contact.html): Public email address and an optional email draft tool.
+- [Homepage](https://clearlyonline.co.uk/): The studio, services, prices and how to enquire.
+- [Website design](https://clearlyonline.co.uk/web-design.html): Website builds, redesigns, quote forms and booking integrations.
+- [Pricing](https://clearlyonline.co.uk/pricing.html): Guide package prices, setup fees, 12-month managed commitment, exclusions and cost comparison.
+- [About Clearly Online](https://clearlyonline.co.uk/about.html): The studio's mission and approach.
+- [Contact](https://clearlyonline.co.uk/contact.html): Public email address and an optional email draft tool.
 
 ## Who the websites are for
 
-- [Trades and home services](https://leonfxd200.github.io/clearly-online/websites-for-trades.html): Service areas, job examples and useful quote requests.
-- [Appointment-led businesses](https://leonfxd200.github.io/clearly-online/websites-for-appointments.html): Service clarity, booking tools and customer questions.
-- [Local professional services](https://leonfxd200.github.io/clearly-online/websites-for-professionals.html): Explaining complex work, trust and introductory enquiries.
+- [Trades and home services](https://clearlyonline.co.uk/websites-for-trades.html): Service areas, job examples and useful quote requests.
+- [Appointment-led businesses](https://clearlyonline.co.uk/websites-for-appointments.html): Service clarity, booking tools and customer questions.
+- [Local professional services](https://clearlyonline.co.uk/websites-for-professionals.html): Explaining complex work, trust and introductory enquiries.
 
 ## Other services
 
-- [Local SEO](https://leonfxd200.github.io/clearly-online/local-seo.html): Search foundations and optional ongoing work.
-- [Website care](https://leonfxd200.github.io/clearly-online/website-care.html): Hosting, maintenance and support.
+- [Local SEO](https://clearlyonline.co.uk/local-seo.html): Search foundations and optional ongoing work.
+- [Website care](https://clearlyonline.co.uk/website-care.html): Hosting, maintenance and support.
 
 ## Key facts
 
@@ -32,4 +32,4 @@
 
 ## Optional
 
-- [Website privacy](https://leonfxd200.github.io/clearly-online/privacy.html): Information about this website's current data handling.
+- [Website privacy](https://clearlyonline.co.uk/privacy.html): Information about this website's current data handling.
