@@ -52,13 +52,13 @@ Before introducing a backend form: choose the receiving provider, configure anti
 
 Owner-approved guide prices are retained:
 
-| Package | Build | Managed per month | Setup | Managed year one |
-| --- | ---: | ---: | ---: | ---: |
-| Starter | £795 | £99 | £195 | £1,383 |
-| Business | £1,495 | £159 | £295 | £2,203 |
-| Growth | from £2,495 | from £239 | £395 | from £3,263 |
+| Package | One-off build | With 12 months hosting | With 24 months hosting |
+| --- | ---: | ---: | ---: |
+| Starter | £400 | £988 | £1,576 |
+| Business | £500 | £1,088 | £1,676 |
+| Growth | from £600 | from £1,188 | from £1,776 |
 
-The more detailed service model is a proposal to support quoting, not an executed agreement: one-off build uses a proposed 50/50 payment schedule; managed is 12 months from launch plus setup, with hosting/care and 30 minutes of small edits monthly. Standalone care starts at £39/month; optional SEO support starts at £180/month. The calculator explains that 24-month estimates assume current rates continue, not a rate guarantee.
+The service model is a proposal to support quoting, not an executed agreement: website builds use a proposed 50/50 payment schedule, with optional hosting and routine care at £49/month after launch. Content changes, third-party charges and new features are separate unless quoted. Optional SEO support starts at £180/month. The calculator explains that longer-term estimates assume current rates continue, not a rate guarantee.
 
 Confirm capacity and commercial terms with the owner before contracting: VAT status, final scope, third-party costs, licence restrictions, cancellation/notice, early-exit settlement, backup schedules, support hours and handover/migration obligations. These are explicitly subject to a written proposal on the website. There is no checkout or purchase acceptance on this site.
 

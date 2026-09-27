@@ -42,25 +42,23 @@ document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener
 const costPlan=document.querySelector('#cost-plan');
 if(costPlan){
   const costPeriod=document.querySelector('#cost-period');
-  const care=document.querySelector('#cost-care');
-  [costPlan,costPeriod,care].forEach(control=>control.disabled=false);
-  const plans=[{build:795,monthly:99,setup:195},{build:1495,monthly:159,setup:295},{build:2495,monthly:239,setup:395}];
+  [costPlan,costPeriod].forEach(control=>control.disabled=false);
+  const plans=[{build:400},{build:500},{build:600}];
   const money=value=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(value);
   const update=()=>{
-    const plan=plans[Number(costPlan.value)],months=Number(costPeriod.value),careRate=care.checked?39:0,prefix=costPlan.value==='2'?'From ':'';
-    document.querySelector('#build-total').textContent=prefix+money(plan.build+months*careRate);
-    document.querySelector('#managed-total').textContent=prefix+money(plan.setup+months*plan.monthly);
-    document.querySelector('#build-equation').textContent=`${money(plan.build)} build${care.checked?` + ${months} × £39 care`:'; ongoing hosting not included'}`;
-    document.querySelector('#managed-equation').textContent=`${money(plan.setup)} setup + ${months} × ${money(plan.monthly)}`;
-    document.querySelector('#cost-care-label').textContent=care.checked?'+ care':'only';
-    document.querySelector('#cost-assumptions').textContent=`Guide totals over ${months} months. ${months===24?'Assumes current rates continue after the 12-month minimum; this is not a price lock. ':''}Managed includes hosting, care and a small editing allowance; standalone care does not include that editing allowance. Totals exclude third-party charges and any applicable VAT.`;
+    const plan=plans[Number(costPlan.value)],months=Number(costPeriod.value),prefix=costPlan.value==='2'?'From ':'';
+    document.querySelector('#build-total').textContent=prefix+money(plan.build);
+    document.querySelector('#hosted-total').textContent=prefix+money(plan.build+months*49);
+    document.querySelector('#build-equation').textContent=`${money(plan.build)} one-off build`;
+    document.querySelector('#hosted-equation').textContent=`${money(plan.build)} build + ${months} × £49 hosting & care`;
+    document.querySelector('#cost-assumptions').textContent=`Guide total over ${months} months. ${months===24?'Assumes the current hosting rate continues; this is not a price lock. ':''}Hosting and care do not include unlimited content changes. Totals exclude third-party charges and any applicable VAT.`;
     document.querySelectorAll('[data-cost-enquiry]').forEach(link=>{
       const target=new URL(link.href);
       target.searchParams.set('plan',['Starter','Business','Growth'][Number(costPlan.value)]);
       link.href=target.href;
     });
   };
-  [costPlan,costPeriod,care].forEach(control=>control.addEventListener('change',update));
+  [costPlan,costPeriod].forEach(control=>control.addEventListener('change',update));
   update();
 }
 const form=document.querySelector('#brief-form');
@@ -75,7 +73,7 @@ if(form){
   if([...select.options].some(option=>option.value===requestedPlan))select.value=requestedPlan;
   const payment=form.querySelector('[name=payment]');
   const requestedPayment=parameters.get('payment');
-  if(['build','monthly'].includes(requestedPayment))payment.value=requestedPayment;
+  if(['build','hosting'].includes(requestedPayment))payment.value=requestedPayment;
   const output=document.querySelector('#brief-output'),status=document.querySelector('#form-status'),draft=document.querySelector('#email-draft'),actions=document.querySelector('#brief-actions'),copy=document.querySelector('#copy-brief');
   const mailApp=draft.cloneNode(true);
   mailApp.id='email-app';mailApp.className='button outline';mailApp.firstChild.nodeValue='Open email app ';
@@ -105,7 +103,7 @@ if(form){
   form.addEventListener('submit',async event=>{
     event.preventDefault();
     const data=new FormData(form);
-    const paymentLabel={unsure:'I would like advice',build:'One-off build',monthly:'Managed monthly'}[data.get('payment')];
+    const paymentLabel={unsure:'I would like advice',build:'Build only',hosting:'Build + £49/month hosting & care'}[data.get('payment')];
     const brief=`Website enquiry for Clearly Online\n\nName: ${data.get('name').trim()}\nBusiness: ${data.get('business').trim()||'Not supplied'}\nEmail: ${data.get('email').trim()||'Not supplied'}\nWebsite: ${data.get('website').trim()||'Not supplied'}\nInterested in: ${data.get('plan')}\nPayment preference: ${paymentLabel}\nBudget: ${data.get('budget').trim()||'Not supplied'}\n\n${data.get('message').trim()}`;
     output.value=brief;output.hidden=false;actions.hidden=false;prepared=true;
     if(form.dataset.email){
