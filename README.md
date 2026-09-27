@@ -2,7 +2,7 @@
 
 Independent web design, local SEO and website care for Sevenoaks and Kent. Original charcoal, ivory and tangerine design with the owner's supplied portrait.
 
-Live: https://leonfxd200.github.io/clearly-online/
+Live: https://clearlyonline.co.uk/
 
 ## Build and preview
 
@@ -21,12 +21,13 @@ Open http://localhost:8000. The output is plain HTML, CSS and JavaScript. GitHub
 
 - `site.config.mjs`: public brand, current canonical URL, approved email address and optional public founder name.
 - `build.mjs`: page copy, pricing packages, audience pages, shared header/footer and metadata. Run the build after edits; commit the resulting HTML, `llms.txt` and sitemap too.
+- `guides.mjs`: the website planning hub, cost guide and brief checklist. Cost examples use the same package data as the pricing page.
 - `styles.css`: responsive layouts and brand tokens. Containers have bounded widths without viewport-derived internal padding, including at 4K.
 - `script.js`: menu, pricing switch, cost comparison and local email-draft generation.
 - `minify-assets.mjs`: creates the CSS and JavaScript files used by the public pages. The source CSS was already compact, so its extra size reduction is small; the JavaScript reduction is more visible.
 - `verify.mjs`: checks page titles/descriptions, H1s, branding, structured-data syntax, canonical targets, local links/anchors and asset budgets.
 
-Pages: home, web design, local SEO, hosting/care, pricing, about, contact and website privacy, plus audience pages for trades, appointment-led businesses and local professional services. A custom 404 is included. There are no fictional client projects, reviews, awards, addresses or ranking claims.
+Pages: home, web design, local SEO, hosting/care, pricing, about, contact and website privacy, plus audience pages for trades, appointment-led businesses and local professional services. A guides hub links to the website cost guide and project brief checklist. A custom 404 is included. There are no fictional client projects, reviews, awards, addresses or ranking claims.
 
 The Websites navigation uses a native disclosure with direct links to design/redesigns and all three audience pages. On phones, the menu opens in the document flow. Escape closes the innermost open disclosure, and focus leaving the header closes it without taking focus back. The skip link targets a focusable main region, and controls use two-colour focus indicators on light and dark sections.
 
@@ -38,7 +39,7 @@ The repository and GitHub Pages path use the Clearly Online name.
 
 ## Contact and privacy
 
-Public email approved by the owner: `leonfxdupree@gmail.com`.
+Public email approved by the owner: `clearlyonlineuk@gmail.com`.
 
 The form prepares a `mailto:` draft addressed to that email. It **does not send email**, submit to a backend, store form contents, or prove message delivery. Visitors open their email app and send the message there, or copy the prepared brief into an email. Long `mailto:` URLs can be limited by email clients, so the full brief is always shown as a fallback.
 
@@ -68,23 +69,21 @@ Confirm capacity and commercial terms with the owner before contracting: VAT sta
 - Unique titles, meta descriptions, canonical URLs and one primary heading per page.
 - Open Graph/Twitter metadata and a 1200 × 630 original social card.
 - Organization, WebSite, WebPage, BreadcrumbList and relevant Service JSON-LD; no invented LocalBusiness address or review/rating markup.
-- XML sitemap of the ten public marketing pages. The utility privacy page and 404 have `noindex`.
+- XML sitemap of the thirteen public marketing and guide pages. The utility privacy page and 404 have `noindex`.
 - A project-level `llms.txt` summarises the actual pages and commercial details. Pages link to it with `rel="describedby"`. This is an optional discovery format, not a guarantee of inclusion in assistant answers.
-- Public pages use minified CSS and JavaScript. Readable source files remain in the repository.
+- Public pages use minified CSS and JavaScript with content-based cache versions. Readable source files remain in the repository.
 - Responsive layouts, reduced-motion support, explicit image dimensions, a lightweight initial portrait, lazy-loaded large portrait and self-hosted Manrope.
 - Local copy reflects actual service areas rather than cloned town landing pages.
 
-Important: a project-level `robots.txt` under `/clearly-online/` is **not** the origin-root robots file search engines use. A live check of `https://leonfxd200.github.io/robots.txt` returned 404. The project file is ready for a future custom domain; on the current GitHub Pages address, submit the sitemap directly through a verified URL-prefix Search Console property. No Google Search Console submission or Business Profile creation has been performed by this build.
+The custom domain serves `robots.txt` and `sitemap.xml` at the origin root. HTTP and www URLs redirect to the canonical HTTPS non-www address. Keep the existing `.html` URLs stable; extensionless aliases use canonical metadata rather than a separate sitemap entry.
 
-## Owner follow-up / custom domain
+## Search setup and next improvements
 
-1. Choose and buy an available domain after checking the name is suitable for use. No domain is claimed or purchased here.
-2. Configure it in GitHub Pages and the registrar DNS using GitHub's current instructions; confirm HTTPS.
-3. Update `url` in `site.config.mjs` with the new canonical HTTPS origin and trailing slash, rebuild and redeploy. Canonicals, schema, social URLs, 404 links and sitemap will update together. GitHub Pages domain configuration may create a `CNAME` file.
-4. Verify the domain or URL-prefix property in Google Search Console and submit `sitemap.xml`. Inspect key URLs and monitor indexing. Re-submit after a domain migration.
-5. Add a Google Business Profile only if the business meets Google's eligibility rules. Use genuine business details and reviews; never invent a premises address.
-6. Add real, permissioned project case studies as work is completed. Revisit content and search performance over time.
-7. If analytics is desired, choose a provider and consent/privacy approach before installation. There is currently no analytics ID.
+1. The `clearlyonline.co.uk` domain property is verified in Google Search Console. On 27 September 2026 its submitted sitemap showed Success and 10 discovered pages before this guide expansion. Discovery does not prove indexing; inspect key URLs after deployment and use Search Console for actual indexing and query data.
+2. Keep canonical URL, public email, visible business facts and prices consistent. `site.config.mjs`, package data and the generated checks centralise those values.
+3. Add real, permissioned project case studies and approved business background as evidence becomes available. No owner identity or social-profile URL should be inferred from an account name.
+4. Keep Google Business Profile details aligned with the live site where eligible. Use genuine business details and reviews; do not expose a residential address for SEO.
+5. If analytics is desired, choose a provider and consent/privacy approach before installation. There is currently no analytics ID.
 
 Search rankings, indexing, rich results and customer enquiries are not guaranteed by technical checks. No Lighthouse score or field Core Web Vitals result is claimed.
 
