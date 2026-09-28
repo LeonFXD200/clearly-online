@@ -43,7 +43,7 @@ Public email approved by the owner: `clearlyonlineuk@gmail.com`.
 
 The form prepares a `mailto:` draft addressed to that email. It **does not send email**, submit to a backend, store form contents, or prove message delivery. Visitors open their email app and send the message there, or copy the prepared brief into an email. Long `mailto:` URLs can be limited by email clients, so the full brief is always shown as a fallback.
 
-Pricing links carry the chosen package and payment model into the enquiry form. A Copy enquiry button provides a clipboard action, with manual text selection if clipboard access is unavailable. Editing any enquiry field hides the previous prepared draft until it is rebuilt, so the email link cannot silently use outdated details. Existing website addresses can be entered without `https://`.
+The enquiry form starts with a name, project type and short description. Business, contact, website, hosting and budget details are available in an optional disclosure. Pricing links carry the chosen package and payment model into the form and open that disclosure so the selection is visible. A Copy enquiry button provides a clipboard action, with manual text selection if clipboard access is unavailable. Editing any enquiry field hides the previous prepared draft until it is rebuilt, so the email link cannot silently use outdated details. Existing website addresses can be entered without `https://`.
 
 No external form provider, analytics, advertising scripts, tracking cookies or embedded maps are installed. Images and fonts are served locally. GitHub infrastructure may retain technical access logs under its own policy. The privacy page describes this current setup, not a comprehensive future business policy.
 

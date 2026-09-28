@@ -73,7 +73,12 @@ if(form){
   if([...select.options].some(option=>option.value===requestedPlan))select.value=requestedPlan;
   const payment=form.querySelector('[name=payment]');
   const requestedPayment=parameters.get('payment');
-  if(['build','hosting'].includes(requestedPayment))payment.value=requestedPayment;
+  const moreDetails=form.querySelector('.contact-more');
+  if(['build','hosting'].includes(requestedPayment)){
+    payment.value=requestedPayment;
+    moreDetails.open=true;
+  }
+  form.addEventListener('invalid',event=>{if(moreDetails.contains(event.target))moreDetails.open=true;},true);
   const output=document.querySelector('#brief-output'),status=document.querySelector('#form-status'),draft=document.querySelector('#email-draft'),actions=document.querySelector('#brief-actions'),copy=document.querySelector('#copy-brief');
   const mailApp=draft.cloneNode(true);
   mailApp.id='email-app';mailApp.className='button outline';mailApp.firstChild.nodeValue='Open email app ';

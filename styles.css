@@ -47,7 +47,13 @@ table{font-size:15px}
 section[id]{scroll-margin-top:24px}
 .cost-results .text-link{margin-top:14px}
 .brief-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.contact-more{border:1px solid var(--line);border-radius:9px;background:var(--tint);overflow:hidden}
+.contact-more>summary{cursor:pointer;padding:17px 20px;font-size:15px;font-weight:700;line-height:1.4}
+.contact-more>summary::marker{color:var(--ink)}
+.contact-more[open]>summary{border-bottom:1px solid var(--line)}
+.contact-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 20px;padding:22px 20px 24px}
 @media(max-width:520px){.section-nav{gap:8px 20px;margin-bottom:30px}.brief-actions{align-items:stretch;flex-direction:column}.brief-actions .button{width:100%}}
+@media(max-width:520px){.contact-more-grid{grid-template-columns:1fr}.contact-more-grid label{grid-column:1}}
 
 /* Navigation stays usable by touch, keyboard and without JavaScript. */
 .header-inner nav>a,.nav-websites>summary{min-height:44px;display:flex;align-items:center}
